@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/category.dart';
+import 'package:uuid/uuid.dart';
 
 class CategoryScreen extends StatefulWidget {
   @override
@@ -125,7 +126,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   void _addCategory(String name) {
     setState(() {
-      _categories.add(Category(id: '1', name: name, createdAt: DateTime.now()));
+      var uuid = const Uuid();
+      _categories.add(Category(id: uuid.v4(), name: name, createdAt: DateTime.now()));
     });
   }
 
